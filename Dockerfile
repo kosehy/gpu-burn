@@ -14,6 +14,7 @@ FROM nvidia/cuda:${CUDA_VERSION}-runtime-${IMAGE_DISTRO}
 COPY --from=builder /build/gpu_burn /app/
 COPY --from=builder /build/compare.ptx /app/
 
+WORKDIR /app
 # Set the entrypoint to your binary and use CMD to provide default arguments
 ENTRYPOINT ["./gpu_burn"]
 CMD ["120"]
